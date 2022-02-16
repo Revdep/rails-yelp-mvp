@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="res-card">
+    <h2 class="r-name"><%= @restaurant.name %></h2>
+    <p class="r-address">Address: <%= @restaurant.address %></p>
+    <p class="r-phone">Phone number: <%= @restaurant.phone_number %></p>
+    <p class="r-cat">Category: <%= @restaurant.category.capitalize %></p>
+  </div>
+  <%= link_to "Reviews", restaurant_reviews_path(@restaurant) %>
+  <div class="form">
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :rating %>
+      <%= f.input :content %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
